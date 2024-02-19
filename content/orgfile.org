@@ -1,0 +1,13 @@
+#+title: test file
+#+AUTHOR: me
+#+OPTIONS: H:2 num:nil toc:nil
+#+cite_export: basic author author-year
+#+bibliography: ./references.bib
+
+* Citation
+
+ [cite:@schottmueller2022optimal]
+
+* Bibliography
+#+print_bibliography:
+
