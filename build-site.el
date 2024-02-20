@@ -3,6 +3,12 @@
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("elpa" . "https://elpa.gnu.org/packages/")))
 
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(setq use-package-always-ensure t)
+
 ;; Initialize the package system
 (package-initialize)
 (unless package-archive-contents
