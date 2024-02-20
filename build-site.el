@@ -1,6 +1,6 @@
 (require 'ox-publish)
 
-(org-version)
+(message (org-version))
 
 ;; Customize the HTML output
 (setq org-html-validation-link nil            ;; Don't show validation link
