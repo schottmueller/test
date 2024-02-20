@@ -1,5 +1,7 @@
 (require 'ox-publish)
- 
+
+(org-version)
+
 ;; Customize the HTML output
 (setq org-html-validation-link nil            ;; Don't show validation link
       org-html-head-include-scripts nil       ;; Use our own scripts
