@@ -10,6 +10,7 @@
   (package-refresh-contents)
   (package-install 'auto-package-update))
 
+(require 'auto-package-update)
 (auto-package-update-now)
 
 (require 'ox-publish)
