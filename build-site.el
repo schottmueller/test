@@ -1,41 +1,21 @@
-;;; ----------------------------------------------------------------------------
-;;; package system configuration
-;;; ----------------------------------------------------------------------------
-
 (require 'package)
+(setq package-user-dir (expand-file-name "./.packages"))
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
 
-(setq package-enable-at-startup nil)
-
-(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-
+;; Initialize the package system
 (package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
 
-;; bootstrap use-package
-(setq package-pinned-packages
-      '((bind-key    . "melpa-stable")
-        (diminish    . "melpa-stable")
-        (use-package . "melpa-stable")))
-
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-(setq use-package-always-ensure t)
-
-(use-package org :pin gnu)
-
-(unless (package-installed-p 'auto-package-update)
-  (package-refresh-contents)
-  (package-install 'auto-package-update))
-
-(require 'auto-package-update)
-(auto-package-update-now)
+;; Install dependencies
+;allows fontified source code blocks
+(package-install 'htmlize)
+;;org-mode citations
+(package-install 'citeproc-org)
+(require 'oc-csl)
 
 (require 'ox-publish)
-
-(message (org-version))
 
 ;; Customize the HTML output
 (setq org-html-validation-link nil            ;; Don't show validation link

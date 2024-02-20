@@ -13,8 +13,11 @@ jobs:
       - name: Check out
         uses: actions/checkout@v1
 
+      - name: Enable newest emacs version
+        run: sudo add-apt-repository ppa:ubuntuhandbook1/emacs
+	
       - name: Install Emacs
-        run: sudo apt install emacs --yes
+        run: sudo apt install emacs emacs-common --yes
 
       - name: Build the site
         run: ./build.sh
