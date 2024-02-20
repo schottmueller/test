@@ -16,7 +16,7 @@
 
 (use-package org :pin elpa)
 
-(package-upgrade org)
+(package-upgrade 'org)
 
 (require 'ox-publish)
 
