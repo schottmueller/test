@@ -14,7 +14,7 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
-(use-package org :pin gnu)
+(use-package org :pin elpa)
 
 (require 'ox-publish)
 
